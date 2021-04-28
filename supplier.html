@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>our project</h1>
+    <nav>
+        <div class="links">
+            <a class="a" href="http://127.0.0.1:8000/Setup/home">Home Page</a>
+            <a class="a" href="http://127.0.0.1:8000/Setup/storage"  >Storage Data </a>
+            <a class="a" href="http://127.0.0.1:8000/Setup/item"  >Item Data </a>
+            <a class="a" href="http://127.0.0.1:8000/Setup/customer"  >Customer Data </a>
+            <a class="a" href="http://127.0.0.1:8000/Transaction/in"  >In Data </a>
+            <a class="a" href="http://127.0.0.1:8000/Transaction/out"  >Out Data </a>
+            
+        </div>
+        
+    </nav>
+    <center>
+      <table >
+        <caption><h2 class="itemsdata"><b class="itemsfont"> {{page_title}}</b></h2></caption>
+        <thead>
+          <tr>
+            <td>id</td>
+            <td>code</td>
+            <td>supplier name</td>
+            <td>supplier mobile</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for m in data %}
+          <tr>
+            <td>{{ m.supplier_id }}</td>
+            <td>{{ m.supplier_code }}</td>
+            <td>{{ m.supplier_name }}</td>
+            <td>{{ m.supplier_mobile }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>      
+    </center>
+{% endblock %}

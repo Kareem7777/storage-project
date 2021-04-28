@@ -1,0 +1,74 @@
+{% extends 'base transaction.html' %}
+{% block content %}
+    <h1>our project</h1>
+    <nav>
+        <div class="links">
+            <a class="a" href="http://127.0.0.1:8000/Setup/home">Home Page</a>
+            <a class="a" href="http://127.0.0.1:8000/Setup/storage">Storage Data </a>
+            <a class="a" href="http://127.0.0.1:8000/Setup/supplier">Supplier Data </a>
+            <a class="a" href="http://127.0.0.1:8000/Setup/customer">Customer Data </a>
+            <a class="a" href="http://127.0.0.1:8000/Setup/item">Item Data </a>
+            <a class="a" href="http://127.0.0.1:8000/Transaction/out">Out Data </a>
+            
+        </div>
+        
+    </nav>
+    <center>
+      <table >
+        <caption><h2 class="itemsdata"><b class="itemsfont"> Master In Data</b></h2></caption>
+        <thead>
+          <tr>
+            <td>id</td>
+            <td>code</td>
+            <td>date</td>
+            <td>move number</td>
+            <td>notes</td>
+            <td>storage</td>
+            <td>supplier</td>
+            <td>customer</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for m in data %}
+          <tr>
+            <td>{{ m.master_in_id }}</td>
+            <td>{{ m.master_in_code }}</td>
+            <td>{{ m.master_in_date }}</td>
+            <td>{{ m.master_in_movenumber }}</td>
+            <td>{{ m.master_in_notes }}</td>
+            <td>{{ m.Storage_id.storage_name }}</td>
+            <td>{{ m.Supplier_id.supplier_name }}</td>
+            <td>{{ m.Customer_id.customer_name }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>      
+    </center>
+    <center>
+      <table >
+        <caption><h2 class="itemsdata"><b class="itemsfont"> Detail In Data</b></h2></caption>
+        <thead>
+          <tr>
+            <td>id</td>
+            <td>code</td>
+            <td>quantity</td>
+            <td>price</td>
+            <td>master in id</td>
+            <td>item name</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in zata %}
+          <tr>
+            <td>{{ i.detail_in_id }}</td>
+            <td>{{ i.detail_in_code }}</td>
+            <td>{{ i.detail_in_quantity }}</td>
+            <td>{{ i.detail_in_price }}</td>
+            <td>{{ i.Master_in_id.master_in }}</td>
+            <td>{{ i.Items_id.items_name }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>      
+    </center>
+{% endblock %}
